@@ -24,6 +24,10 @@ public class PowerCLI extends Thread {
     private List<Action> preDrawTasks = new ArrayList<>();
     private List<Action> postDrawTasks = new ArrayList<>();
 
+    // Width and height
+    @Getter @Setter
+    private int screenWidth = 40;
+
     @Getter @Setter
     private boolean alive = true;
 

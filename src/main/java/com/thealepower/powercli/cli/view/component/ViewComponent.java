@@ -20,6 +20,5 @@ public abstract class ViewComponent {
 
     public abstract String getName();
 
-    //
     public abstract String[] draw(Character input);
 }
