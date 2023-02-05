@@ -1,8 +1,7 @@
 package com.thealepower.powercli.cli.view.component.menu;
 
 import com.thealepower.powercli.PowerCLI;
-import com.thealepower.powercli.cli.input.InputAdapter;
-import com.thealepower.powercli.cli.view.CLIView;
+import com.thealepower.powercli.cli.adapter.input.InputAdapter;
 import com.thealepower.powercli.cli.view.component.ViewComponent;
 
 import java.security.InvalidParameterException;
@@ -30,14 +29,16 @@ public abstract class SelectionMenu extends ViewComponent {
     public String[] draw(Character input) {
         List<String> output = new ArrayList<>();
 
-        if (input.equals(InputAdapter.CONTROLKEY_UP) && selectedElement > 0) {
-            selectedElement--;
-        } else if (input.equals(InputAdapter.CONTROLKEY_DOWN) && selectedElement < entries.size()) {
-            selectedElement++;
-        } else if (input.equals(InputAdapter.CONTROLKEY_LEFT)) {
-            goBack();
-        } else if (input.equals(InputAdapter.CONTROLKEY_RIGHT)) {
-            entries.get(selectedElement).getAction().run();
+        if (input != null) {
+            if (input.equals(InputAdapter.CONTROLKEY_UP) && selectedElement > 0) {
+                selectedElement--;
+            } else if (input.equals(InputAdapter.CONTROLKEY_DOWN) && selectedElement < entries.size()) {
+                selectedElement++;
+            } else if (input.equals(InputAdapter.CONTROLKEY_ENTER)) {
+                entries.get(selectedElement).getAction().run();
+            } else if (input.equals(InputAdapter.CONTROLKEY_BACK)) {
+                goBack();
+            }
         }
 
         for (int i = 0; i < entries.size(); i++) {

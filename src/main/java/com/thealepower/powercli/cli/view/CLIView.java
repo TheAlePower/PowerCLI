@@ -1,12 +1,9 @@
 package com.thealepower.powercli.cli.view;
 
-import com.thealepower.powercli.cli.input.InputAdapter;
-import com.thealepower.powercli.cli.output.OutputAdapter;
 import com.thealepower.powercli.cli.view.component.ViewComponent;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class CLIView {
     // The metadata of the view itself
@@ -43,6 +40,7 @@ public class CLIView {
 
     public String[] draw(Character character) {
         List<String> lines = new ArrayList<>();
+
         for (int i = 0; i < components.size(); i++) {
             lines.addAll(List.of(components.get(i).draw(character)));
         }

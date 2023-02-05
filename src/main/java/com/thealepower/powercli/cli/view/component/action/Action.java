@@ -9,11 +9,17 @@ public abstract class Action {
     @Setter
     private int uses = 1;
 
+    @Getter @Setter
+    private PowerCLI owner;
+
     public Action(PowerCLI owner, int uses) {
+        this.owner = owner;
         this.uses = uses;
     }
 
-    public Action(PowerCLI owner) {}
+    public Action(PowerCLI owner) {
+        this.owner = owner;
+    }
 
     public void run() {
         if (uses > 1) {

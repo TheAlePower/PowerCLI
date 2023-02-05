@@ -1,10 +1,13 @@
 package com.thealepower.powercli.cli.view.component.action;
 
 import com.thealepower.powercli.PowerCLI;
+import lombok.Getter;
+import lombok.Setter;
 
 public abstract class ActionAsync extends Action {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     protected Thread currentThread;
 
     public ActionAsync(PowerCLI owner, int uses) {

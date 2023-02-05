@@ -1,4 +1,6 @@
-package com.thealepower.powercli.cli.input;
+package com.thealepower.powercli.cli.adapter.input;
+
+import java.io.IOException;
 
 public abstract class InputAdapter {
     // Common control keys to navigate menus
@@ -7,5 +9,8 @@ public abstract class InputAdapter {
     public static final Character CONTROLKEY_LEFT = 'a';
     public static final Character CONTROLKEY_RIGHT = 'd';
 
-    public abstract Character readCharacter();
+    public static final Character CONTROLKEY_ENTER = '\n';
+    public static final Character CONTROLKEY_BACK = '\b';
+
+    public abstract Character readCharacter() throws IOException;
 }
